@@ -1,0 +1,102 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body{
+  background:linear-gradient(180deg,rgb(234, 160, 230),rgb(252, 248, 248),rgb(235, 226, 156));
+  height:100vh;
+  padding-top: 15vh;
+}
+.wrapper{
+  background-color: black;
+  width:50%;
+  display: block;
+  margin:auto;
+  padding-top: 10px;
+
+  min-height: 20rem;
+  max-height: 22rem;
+  height:21rem;
+  min-width: 13rem;
+  width: 13rem;
+  max-width: 16rem;
+
+  border: solid white 2px;
+  border-radius: 1.3rem;
+  box-shadow: rgb(80, 81, 80) 0 0 5px;
+}
+
+/*Screen Element Styles*/
+.screen-section{
+  padding-bottom: 10px;
+}
+.screen-container{
+  height: 6rem;
+  max-height: 6rem;
+  background-color: inherit;
+  margin: auto;
+  padding: 5px;
+  width: 90%;
+}
+input{
+  font-size:2rem;
+  color:rgb(254, 254, 254);
+  background-color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-top:2rem;
+  margin-bottom: 2vh;
+  height:2rem;
+  min-height: 2rem;
+  text-align: right;
+  width: 100%;
+  padding-right: 5px;
+}
+
+input::placeholder{
+  color:white;
+}
+input:focus{
+  outline:none;
+}
+
+/*Button Element Styles*/
+.btn-container{
+  height:12rem;
+  min-height: 12rem;
+  max-height: 13rem;
+  background-color: inherit;
+  margin: auto;
+  padding: 5px;
+  width: 90%;
+  
+}
+button{
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 1.1rem;
+  background-color:  #474646;
+  color: white;
+  font-size: large;
+  border: none;
+}
+button:active{
+  opacity: 0.8;
+}
+.btn-row{
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: space-between;
+
+}
+
+.btn-row button:last-child{
+  background-color: #ff9500;
+}
+.double{
+  width: 5.2rem;
+  border-radius: 5.2rem;
+}
