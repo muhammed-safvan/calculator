@@ -1,43 +1,71 @@
 let previousNumber;
 let previousOperator;
-const operators = ["%", "−", "+", "×", "=", "÷"];
+let currentNumber;
+const operators = ["%", "−", "+", "×", "÷"];
 
-function renderScreen(input) {
+function renderScreen(userInput) {
+    let input=userInput;
   const inputType = typeof input;
   if (
-    previousNumber &&
+    currentNumber &&
     (inputType === "number" || input === "0" || input === ".")
   ) {
-    document.querySelector(".screen").value = previousNumber += `${input}`;
+    document.querySelector(".screen").value = currentNumber +=`${input}`;
     return;
   } else if (inputType === "number" || input === "0") {
-    previousNumber = input;
-  } else if (input === "+") {
-    previousOperator = input;
+    currentNumber = +input;
+  } else if (input === "=") {
+    document.querySelector(".screen").value = doMath(input);
+    return;
   }
+  
   document.querySelector(".screen").value = input;
 }
 
 function getBtnValue(btn) {
-  const text = btn.innerText;
-  const number = +text;
+  const btnValue = btn.innerText;
+  const number = +btnValue;
 
   if (!number || number === 0) {
-    const isOperator = operators.includes(text);
+    const isOperator = operators.includes(btnValue);
     if (isOperator) {
-      previousOperator = text;
-    } else if (text === "AC") {
+      previousOperator = btnValue;
+      if(!previousNumber){
+        previousNumber = currentNumber;
+        currentNumber = "";
+      }
+      console.log(previousNumber);
+    } else if (btnValue === "AC") {
+        previousNumber="";
+        currentNumber = "";
       return "";
     }
-    return text;
+    return btnValue;
   }
   return number;
 }
 
-function doMath() {
-  const input = getBtnValue();
-  if (input === "+") {
+function doMath(input) {
+    let calculated;
+  if (previousOperator) {
+    const numPrevious = Number(previousNumber);
+    const numCurrent = Number(currentNumber);
+    switch(previousOperator) {
+        case '+' : calculated = numPrevious + numCurrent
+        break;
+        case "−" : calculated =  numPrevious - numCurrent
+        break;
+        case '%' : calculated = numPrevious % numCurrent
+        break;
+        case '×' : calculated = numPrevious * numCurrent
+        break;
+        case '÷' : calculated = numPrevious / numCurrent
+        break;
+    }
   }
+  previousNumber = calculated;
+  currentNumber = "";
+  return calculated;
 }
 
 document.querySelectorAll("button").forEach((btn) => {
