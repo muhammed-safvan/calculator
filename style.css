@@ -100,3 +100,19 @@ button:active{
   width: 5.2rem;
   border-radius: 5.2rem;
 }
+
+#apple-logo {
+  height: 30px;
+  position: fixed;
+  background-color:rgb(50, 49, 49) ;
+  margin-left: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px white;
+  transition: box-shadow 4s, background-color 4s;
+}
+#apple-logo:hover{
+  background-color: #b2b2b2;
+}
+#apple-logo:active{
+  box-shadow: 0 0 8px 5px #ff9500;
+}
